@@ -1,0 +1,65 @@
+		<form name="loginForm" ng-submit="save(prefs)" class="form-signin" >
+			<h2 class="form-signin-heading">Preferences</h2>
+			
+		<!-- 	<div class="input-group">
+				<label for="password" class="sr-only">Telefoonnr:</label> 
+    			<span class="input-group-addon glyphicon glyphicon-earphone"></span>
+				<input type="text" id="phone" ng-model="prefs.phone" placeholder="Telefoonnr" class="form-control" required>
+			</div> -->
+			
+			<div class="input-group">
+				<label for="team" class="sr-only">Team:</label> 
+    			<span class="input-group-addon glyphicon glyphicon-globe"></span>
+				<select selectpicker data-ng-model="prefs.team" ng-options="team.id as team.naam for team in teams" class="form-control">
+    	             <option value="">Kies een team...</option>
+        	     </select>
+             </div>
+             
+              <div class="input-group">
+				<label for="functie" class="sr-only">Functie:</label> 
+    			<span class="input-group-addon glyphicon glyphicon-tags"></span>
+				<select selectpicker data-ng-model="prefs.functie" ng-options="functie.id as functie.naam for functie in functies" class="form-control">
+    	             <option value="">Kies een functie...</option>
+        	     </select>
+             </div>
+
+             
+             	<label>Uren per dag</label>
+             <div class="input-group">
+             	<label for="ma" class="sr-only">Maandag</label>
+             	<span class="input-group-addon days" >Ma</span>
+             	<input type="number" min="0" max="10" step="0.1" id="ma" ng-model="prefs.mo" placeholder="ma" class="form-control" required>
+             </div>
+             <div class="input-group">
+             	<label for="di" class="sr-only">Dinsdag</label>
+             	<span class="input-group-addon days" >Di</span>
+             	<input type="number" min="0" max="10" step="0.1" id="di" ng-model="prefs.tu" placeholder="di" class="form-control" required>
+             </div>
+             <div class="input-group">
+             	<label for="wo" class="sr-only">Woensdag</label>
+             	<span class="input-group-addon days" >Wo</span>
+             	<input type="number" min="0" max="10" step="0.1" id="wo" ng-model="prefs.we" placeholder="wo" class="form-control" required>
+             </div>
+             <div class="input-group">
+             	<label for="do" class="sr-only">Donderdag</label>
+             	<span class="input-group-addon days" >Do</span>
+             	<input type="number" min="0" max="10" step="0.1" id="do" ng-model="prefs.th" placeholder="do" class="form-control" required>
+             </div>
+             <div class="input-group">
+             	<label for="vr" class="sr-only">Vrijdag</label>
+             	<span class="input-group-addon days" >Vr</span>
+             	<input type="number" min="0" max="10" step="0.1" id="vr" ng-model="prefs.vr" placeholder="vr" class="form-control" required>
+             </div>
+             <div class="input-group">
+             	<label for="za" class="sr-only">Zaterdag</label>
+             	<span class="input-group-addon days" >Za</span>
+             	<input type="number" min="0" max="10" step="0.1" id="za" ng-model="prefs.sa" placeholder="za" class="form-control" required>
+             </div>
+             <div class="input-group">
+             	<label for="zo" class="sr-only">Zondag</label>
+             	<span class="input-group-addon days" >Zo</span>
+             	<input type="number" min="0" max="10" step="0.1" id="zo" ng-model="prefs.su" placeholder="zo" class="form-control" required>
+             </div>
+             
+			<input type="submit" class="btn btn-lg btn-primary btn-block" value="Save" />
+		</form>

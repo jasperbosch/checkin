@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="checkinApp">
+<head>
+
+<link rel="icon" 
+      type="image/ico" 
+      href="favicon.ico">
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Check-in</title>
+	
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap/bootstrap-switch.min.css">
+	<link rel="stylesheet" href="css/bootstrap/bootstrap-select.min.css">
+	<link rel="stylesheet" href="css/app.css">
+	
+	<script src="js/jquery/jquery.min.js"></script>
+	
+	<script src="js/bootstrap/bootstrap.min.js"></script>
+	<script src="js/bootstrap/bootstrap-switch.min.js"></script>
+	<script src="js/bootstrap/bootstrap-select.min.js"></script>
+	
+	<script src="js/angular/angular.min.js"></script>
+	<script src="js/angular/angular-route.min.js"></script>
+	<script src="js/angular/angular-touch.min.js"></script>
+	<script src="js/angular/angular-animate.min.js"></script>
+	<script src="js/angular/angular-ui-router.min.js"></script>
+	<script src="js/angular/ui-bootstrap-tpls-0.12.1.min.js"></script>
+	<script src="js/angular/angular-bootstrap-select.js"></script>
+	<script src="js/angular/angular-cookies.min.js"></script>
+	<script src="js/angular/angular-filter.min.js"></script>
+	
+	<script src="js/app.js"></script>
+	<script src="js/constants.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/directives.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/factories.js"></script>
+	<style>
+		.padding{padding-top:6px;paddiong-bottom:6px;}
+		.disabled .caret{display:none;}
+	</style>
+</head>
+<body ng-controller="ApplicationController" >
+			<nav class="navbar navbar-default .navbar-fixed-top" >
+			  <div class="container-fluid">
+			  <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" id="menubutton" >
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="#">Checkin</a>
+			    </div>		
+			     <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav navbar-left"  ng-controller="NavCtrl">
+			      	<li ng-class="navClass('check')" ng-if="currentUser!=null"><a href="#/check">Huidige status</a></li>
+			        <li ng-class="navClass('stsovz')" ng-if="currentUser!=null"><a href="#/stsovz">Vandaag</a></li>
+			        <li ng-class="navClass('afwovz')"><a href="#/afwovz">Overzicht</a></li>
+			        <li ng-class="navClass('afwmut')" ng-if="currentUser!=null"><a href="#/afwmut">Aan/afwezigheid</a></li>
+			      	<li ng-class="navClass('prefs')" ng-if="currentUser!=null"><a href="#/prefs">Preferences</a></li>
+			        <li ng-class="navClass('login')" ng-if="currentUser==null"><a href="#/login">Log in</a></li>
+				  </ul>			    
+				  <ul class=" nav navbar-nav navbar-right" ng-if="currentUser!=null">
+				  	<li>
+						<div logout-dialog class="clearfix"></div>
+				  	</li>
+				  </ul>				
+				</div>
+			</nav>
+		<div class="container" >
+	  		<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+			<div ng-view > </div>
+		<!-- <div login-dialog ng-if="currentUser==null" ></div> -->
+	</div>
+</body>
+</html>
