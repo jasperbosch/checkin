@@ -7,13 +7,13 @@ http://usercake.com
 define('SESSION_USER','userCakeUser');
 setlocale ( LC_ALL, 'nl_NL', 'nld_NLD' );
 
+
 //Database Information
 $db_host = "localhost"; //Host address (most likely localhost)
 $db_name = "checkin"; //Name of Database
 $db_user = "sqluser"; //Name of database user
 $db_pass = "sqluser"; //Password for database user
 $db_table_prefix = "uc_";
-
 
 GLOBAL $errors;
 GLOBAL $successes;
